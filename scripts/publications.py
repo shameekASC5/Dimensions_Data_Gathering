@@ -119,7 +119,7 @@ def source_pub_batch(start_pub):
                 # print("last id" + last_pub_id)
                 # first_pub_id = last_pub_id
                 time.sleep(delta)
-            delta = random.uniform(5, delta + delta*iter*0.2)
+            delta += random.uniform(0, 0.1)
             iter +=1
             runtime_log += "#----------------------------------------------------#\n"
 
