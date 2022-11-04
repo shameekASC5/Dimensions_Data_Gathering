@@ -132,7 +132,7 @@ def source_researcher_batch(min_id):
                 store_logs(runtime_log, session_timestamp)
                 time.sleep(delta)
                 runtime_log += "#-----------------------------------------------------#\n"
-            delta = random.uniform(5, delta + delta*iter*0.2)
+            delta += random.uniform(0, 0.1)
             iter +=1
 
     except Exception as err:
