@@ -56,7 +56,7 @@ def get_publications(dsl, min_pub_id):
     # continue moving the id's even if nothing/one pub is sourced
     if len(data) <=1:
         first_pub_id = max_pub_id
-        last_pub_id = str(int(max_pub_id[4:]) + 50000)
+        last_pub_id = "pub." + str(int(max_pub_id[4:]) + 50000)
     elif len(data) > 1:
         first_pub_id = data[0]['id']
         last_pub_id = data[len(data)-1]["id"]
