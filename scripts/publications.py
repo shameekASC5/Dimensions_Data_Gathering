@@ -53,12 +53,16 @@ def get_publications(dsl, min_pub_id):
         return [None, "", ""]
 
     data = data.json["publications"]
-    if len(data) > 0:
+    # continue moving the id's even if nothing/one pub is sourced
+    if len(data) <=1:
+        first_pub_id = max_pub_id
+        last_pub_id = str(int(max_pub_id[4:]) + 50000)
+    elif len(data) > 1:
         first_pub_id = data[0]['id']
         last_pub_id = data[len(data)-1]["id"]
-        set_last_pub(last_pub_id)
-        return [data, first_pub_id, last_pub_id]
-    return [None, "", ""]
+    set_last_pub(last_pub_id)
+    return [data, first_pub_id, last_pub_id]
+    #return [None, "", ""]
 #-----------------------------------------------------------------#
 # write publications to data/first_pub-last_pub.csv file
 def write_publications_to_csv(publications, first_pub_id, last_pub_id):
